@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Neo Brutalism Barbershop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            NEO BARBERSHOP
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#barbers">
+                Barbers
+            </a>
+
+            <a href="#reviews">
+                Reviews
+            </a>
+
+            <a href="book.html">
+                Booking
+            </a>
+
+            <a href="login.html" id="navLoginBtn">Login</a>
+
+            <div class="dropdown" id="navAccountDropdown" style="display: none;">
+                <a href="#" class="dropbtn" id="accountNameBtn">Account ▼</a>
+                <div class="dropdown-content">
+                    <a href="mybook.html">My Book</a>
+                    <a href="profile.html">Profil</a>
+                    <a href="#" onclick="logoutDummy()">Logout</a>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="tag">
+                NEO BARBERSHOP
+            </div>
+
+            <h2 class="hero-title">
+                CUT.
+                <br>
+                STYLE.
+                <br>
+                REPEAT.
+            </h2>
+
+            <p class="hero-description">
+                Tempat potong rambut modern dengan vibe bold,
+                edgy, dan penuh karakter.
+                Dari classic cut sampai skin fade —
+                semua dibuat detail.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn-primary" onclick="window.location.href='book.html'">
+                    Book Now
+                </button>
+
+                <button class="btn-secondary">
+                    View Styles
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="image-box">
+
+                <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1200&auto=format&fit=crop"
+                    alt="barber">
+
+            </div>
+
+            <div class="floating-card">
+                Fresh Everyday ✂
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Our Services
+            </h2>
+
+            <div class="section-badge">
+                Premium Barber Experience
+            </div>
+
+        </div>
+
+        <div class="services-grid" id="servicesContainer">
+
+        </div>
+
+    </section>
+
+    <!-- BARBERS -->
+
+    <section class="barbers" id="barbers">
+
+        <div class="barbers-wrapper">
+
+            <h2 class="section-title">
+                Meet The Barbers
+            </h2>
+
+            <div class="barbers-grid" id="barbersContainer">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- REVIEWS -->
+
+    <section class="reviews" id="reviews">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Client Reviews
+            </h2>
+
+            <div class="section-badge">
+                What They Say
+            </div>
+
+        </div>
+
+        <div class="reviews-grid" id="reviewsContainer">
+
+        </div>
+
+        <div class="write-review-container">
+            <h3 class="write-review-title">Tinggalkan Ulasanmu!</h3>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="reviewerName" class="form-control" placeholder="NAMA KAMU" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="reviewerRating" class="form-control" required>
+                            <option value="" disabled selected>BINTANG</option>
+                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="⭐⭐⭐">⭐⭐⭐ (3/5)</option>
+                            <option value="⭐⭐">⭐⭐ (2/5)</option>
+                            <option value="⭐">⭐ (1/5)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="reviewerComment" class="form-control" rows="4" placeholder="KOMENTAR KAMU"
+                        required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" style="margin-top: 0;">Kirim Ulasan</button>
+            </form>
+        </div>
+
+    </section>
+
+    <!-- BOOKING -->
+
+    <section class="booking" id="booking">
+
+        <div class="booking-box">
+
+            <h2>
+                Ready For A Fresh Look?
+            </h2>
+
+            <p>
+                Booking cepat, barber profesional,
+                dan tempat nyaman dengan gaya neo brutalism yang unik.
+            </p>
+
+            <button class="reserve-btn" onclick="window.location.href='book.html'">
+                Reserve Your Seat
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

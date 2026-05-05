@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - Neo Brutalism Barbershop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEO BARBERSHOP</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown" id="navAccountDropdown">
+                <a href="#" class="dropbtn" id="accountNameBtn">Account ▼</a>
+                <div class="dropdown-content">
+                    <a href="mybook.html">My Book</a>
+                    <a href="profile.html">Profil</a>
+                    <a href="#" onclick="logoutDummy()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="auth-page" style="align-items: flex-start;">
+        <div class="booking-form-container" style="margin-top: 40px; box-shadow: 15px 15px 0px #00C2FF;">
+            <h1>My Bookings</h1>
+            
+            <div class="review-card" style="width: 100%; margin-bottom: 20px; transform: rotate(0); background: #FFF7E8;">
+                <h3 style="font-size: 24px; font-weight: 900; text-transform: uppercase; border-bottom: 3px solid black; padding-bottom: 10px; margin-bottom: 15px;">
+                    Upcoming: Fade Expert
+                </h3>
+                <p style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">📅 Besok, 14:00 WIB</p>
+                <p style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">✂ Barber: Raka</p>
+                <span style="display: inline-block; background: #FFE44D; border: 3px solid black; padding: 5px 15px; font-weight: 900; box-shadow: 3px 3px 0px black;">
+                    CONFIRMED
+                </span>
+            </div>
+
+            <div class="review-card" style="width: 100%; margin-bottom: 20px; transform: rotate(0); background: #E0E0E0; color: #555; border-color: #555; box-shadow: 6px 6px 0px #555;">
+                <h3 style="font-size: 24px; font-weight: 900; text-transform: uppercase; border-bottom: 3px solid #555; padding-bottom: 10px; margin-bottom: 15px;">
+                    Past: Classic Cut
+                </h3>
+                <p style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">📅 12 April 2026</p>
+                <p style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">✂ Barber: Dion</p>
+                <span style="display: inline-block; background: white; border: 3px solid #555; padding: 5px 15px; font-weight: 900;">
+                    COMPLETED
+                </span>
+            </div>
+            
+            <a href="book.html" class="submit-btn" style="display: inline-block; text-align: center; text-decoration: none;">Book New Appointment</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if(localStorage.getItem("isLoggedIn") !== "true") {
+                window.location.href = "login.html"; // Protect route
+            }
+        });
+    </script>
+</body>
+</html>

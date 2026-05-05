@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Neo Brutalism Barbershop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEO BARBERSHOP</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown" id="navAccountDropdown">
+                <a href="#" class="dropbtn" id="accountNameBtn">Account ▼</a>
+                <div class="dropdown-content">
+                    <a href="mybook.html">My Book</a>
+                    <a href="profile.html">Profil</a>
+                    <a href="#" onclick="logoutDummy()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="auth-page">
+        <div class="auth-container profile-container" style="max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+            
+            <!-- Left Column: Form -->
+            <div>
+                <h1>My Profile</h1>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="position: relative; display: inline-block; margin-bottom: 15px;">
+                        <div class="profile-pic" id="profilePic" style="margin-bottom: 0;">
+                            U
+                        </div>
+                        <button class="edit-pic-btn" onclick="alert('Fitur ganti foto profil saat ini hanya tampilan (frontend dummy).')" title="Ganti Foto">
+                            ✏️
+                        </button>
+                    </div>
+                    <br>
+                    <div class="membership-badge">
+                        🏅 VIP Member
+                    </div>
+                </div>
+
+                <form id="profileForm" onsubmit="event.preventDefault(); saveProfile()">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Phone Number</label>
+                        <input type="tel" id="profilePhone" class="form-control" placeholder="Belum diisi">
+                    </div>
+                    <button type="submit" class="submit-btn" style="background: #FF2E63; color: white;">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Right Column: Stats -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                
+                <div class="stat-card" style="background: #FFE44D;">
+                    <h3>📅 Jadwal Booking Berikutnya</h3>
+                    <p style="margin-bottom: 5px;"><strong>Tanggal:</strong> Besok, 14:00 WIB</p>
+                    <p style="margin-bottom: 5px;"><strong>Layanan:</strong> Fade Expert</p>
+                    <p><strong>Barber:</strong> Raka</p>
+                </div>
+                
+                <div class="stat-card" style="background: #00C2FF; transform: rotate(-1deg);">
+                    <h3>✂ Barber Favorit</h3>
+                    <p style="font-size: 24px; margin-bottom: 5px;"><strong>Raka</strong></p>
+                    <p>Telah mencukur rambutmu sebanyak 4 kali.</p>
+                </div>
+                
+                <div class="stat-card" style="background: #E0E0E0; border-color: #555; box-shadow: 6px 6px 0px #555;">
+                    <h3 style="border-bottom-color: #555;">🕒 Riwayat Booking Terakhir</h3>
+                    <ul style="list-style-type: none; padding: 0; margin-bottom: 15px;">
+                        <li style="margin-bottom: 10px; border-bottom: 2px dashed #555; padding-bottom: 5px;">12 Apr 2026: Classic Cut (Dion)</li>
+                        <li style="margin-bottom: 10px; border-bottom: 2px dashed #555; padding-bottom: 5px;">01 Mar 2026: Beard Grooming (Aji)</li>
+                    </ul>
+                    <a href="mybook.html" style="font-weight: 900; text-decoration: none; color: black; background: white; padding: 5px 15px; border: 3px solid black; display: inline-block; box-shadow: 3px 3px 0px black;">Lihat Semua ➔</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Load profile data
+        document.addEventListener("DOMContentLoaded", () => {
+            if(localStorage.getItem("isLoggedIn") !== "true") {
+                window.location.href = "login.html"; // Protect route
+            }
+            
+            const userName = localStorage.getItem("userName") || "User";
+            document.getElementById("profileName").value = userName;
+            document.getElementById("profileEmail").value = localStorage.getItem("userEmail") || "";
+            document.getElementById("profilePhone").value = localStorage.getItem("userPhone") || "";
+
+            // Update profile pic initial
+            document.getElementById("profilePic").innerText = userName.charAt(0).toUpperCase();
+        });
+
+        function saveProfile() {
+            const newName = document.getElementById("profileName").value;
+            localStorage.setItem("userName", newName);
+            localStorage.setItem("userEmail", document.getElementById("profileEmail").value);
+            localStorage.setItem("userPhone", document.getElementById("profilePhone").value);
+            alert("Profil berhasil diperbarui!");
+            
+            // Update profile pic initial
+            document.getElementById("profilePic").innerText = newName.charAt(0).toUpperCase();
+
+            // Update navbar immediately
+            const accountNameBtn = document.getElementById("accountNameBtn");
+            if (accountNameBtn) {
+                accountNameBtn.innerText = newName.split(' ')[0] + " ▼";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Seat - Neo Brutalism Barbershop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            NEO BARBERSHOP
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html#services">
+                Services
+            </a>
+
+            <a href="index.html#barbers">
+                Barbers
+            </a>
+
+            <a href="index.html#reviews">
+                Reviews
+            </a>
+
+            <a href="book.html">
+                Booking
+            </a>
+
+            <a href="login.html" id="navLoginBtn">Login</a>
+
+            <div class="dropdown" id="navAccountDropdown" style="display: none;">
+                <a href="#" class="dropbtn" id="accountNameBtn">Account ▼</a>
+                <div class="dropdown-content">
+                    <a href="mybook.html">My Book</a>
+                    <a href="profile.html">Profil</a>
+                    <a href="#" onclick="logoutDummy()">Logout</a>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- BOOKING POLICY MODAL -->
+    <div id="policyModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Booking Policy</h2>
+            <h3>DIBACA DULU GAES!</h3>
+            <ul>
+                <li>Maks telat 15 menit, lebih dari itu kami anggap batal</li>
+                <li>Mohon booking dengan nomor yang bisa dihubungi</li>
+                <li>Batal/reschedule hubungi <strong>+62 857-7198-5372</strong> maks 4 jam sebelum jadwal bookingnya
+                </li>
+            </ul>
+            <button class="modal-btn" onclick="document.getElementById('policyModal').style.display='none'">
+                SAYA MENGERTI
+            </button>
+        </div>
+    </div>
+
+    <!-- BOOKING PAGE -->
+    <section class="booking-page">
+        <div class="booking-form-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>Book Your Seat</h1>
+            <form action="#" method="POST"
+                onsubmit="event.preventDefault(); alert('Booking successful!'); window.location.href='index.html';">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="YOUR NAME" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="YOUR PHONE NUMBER" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+                    <select id="service" class="form-control" required>
+                        <option value="" disabled selected>CHOOSE A SERVICE</option>
+                        <option value="classic">Classic Cut - Rp75K</option>
+                        <option value="fade">Fade Expert - Rp120K</option>
+                        <option value="beard">Beard Grooming - Rp55K</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="barber">Select Barber</label>
+                    <select id="barber" class="form-control" required>
+                        <option value="" disabled selected>CHOOSE A BARBER</option>
+                        <option value="raka">Raka - Modern Fade</option>
+                        <option value="dion">Dion - Classic & Pomp</option>
+                        <option value="aji">Aji - Textured Crop</option>
+                        <option value="any">Any Available Barber</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" class="form-control" required onclick="this.showPicker()">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" class="form-control" required onclick="this.showPicker()">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Set default date and time to current
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+
+            if (dateInput && timeInput) {
+                const now = new Date();
+
+                // Format date to YYYY-MM-DD
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                dateInput.value = `${year}-${month}-${day}`;
+                dateInput.min = `${year}-${month}-${day}`; // Prevent past dates
+
+                // Format time to HH:MM
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                timeInput.value = `${hours}:${minutes}`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
