@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
 interface NeoButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger' | 'outline' | 'ghost' | 'yellow' | 'blue' | 'pink';
+  variant?: 'primary' | 'secondary' | 'danger' | 'outline' | 'ghost' | 'yellow' | 'blue' | 'pink' | 'green';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
   loading?: boolean;
@@ -18,6 +18,7 @@ const variantStyles: Record<string, string> = {
   yellow:    'bg-neo-yellow text-neo-black border-neo-black hover:bg-neo-orange hover:text-neo-white hover:border-neo-orange',
   blue:      'bg-neo-blue text-neo-black border-neo-black hover:brightness-90',
   pink:      'bg-neo-pink text-neo-white border-neo-black hover:brightness-90',
+  green:     'bg-neo-green text-neo-black border-neo-black hover:brightness-90',
 };
 
 const sizeStyles: Record<string, string> = {

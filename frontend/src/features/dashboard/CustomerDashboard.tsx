@@ -4,7 +4,7 @@ import NeoBadge from '../../components/ui/NeoBadge';
 import NeoButton from '../../components/ui/NeoButton';
 import { NeoTextarea } from '../../components/ui/NeoInput';
 import { useAuthStore } from '../../store/authStore';
-import { dummyBookings, dummyServices, dummyBarbers } from '../../data/dummy';
+import { dummyBookings, dummyBarbers } from '../../data/dummy';
 import { Link } from 'react-router-dom';
 
 // ── Stat Card ──────────────────────────────────────────────

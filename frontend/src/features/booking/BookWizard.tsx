@@ -108,7 +108,6 @@ const BookWizard: React.FC = () => {
     wizardData,
     currentStep,
     isSubmitting,
-    submitSuccess,
     setWizardData,
     setCurrentStep,
     setSubmitting,

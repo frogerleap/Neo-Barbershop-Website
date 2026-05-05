@@ -102,7 +102,7 @@ const AdminLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => 
         <header className="bg-neo-white border-b-4 border-neo-black px-6 xl:px-8 py-4 flex items-center justify-between sticky top-0 z-40">
           <div>
             <h1 className="text-xl xl:text-2xl font-display uppercase">
-              {sidebarLinks.find((l) => l.pathname === location.pathname)?.label || 'Admin Panel'}
+              {sidebarLinks.find((l) => l.to === location.pathname)?.label || 'Admin Panel'}
             </h1>
             <p className="text-xs text-neo-black/50 font-bold">
               {new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}

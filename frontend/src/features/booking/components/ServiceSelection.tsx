@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { dummyServices } from '../../../data/dummy';
 
 interface ServiceSelectionProps {
@@ -7,7 +7,7 @@ interface ServiceSelectionProps {
 }
 
 const ServiceSelection: React.FC<ServiceSelectionProps> = ({ onNext, selectedId }) => {
-  const [hovered, setHovered] = useState<string | null>(null);
+
 
   const cardColors = [
     'bg-neo-white',
@@ -26,7 +26,6 @@ const ServiceSelection: React.FC<ServiceSelectionProps> = ({ onNext, selectedId 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {dummyServices.map((service, idx) => {
           const isSelected = selectedId === service.id;
-          const isHovered  = hovered === service.id;
           const baseColor  = cardColors[idx % cardColors.length];
 
           return (
@@ -34,8 +33,6 @@ const ServiceSelection: React.FC<ServiceSelectionProps> = ({ onNext, selectedId 
               key={service.id}
               id={`service-${service.id}`}
               onClick={() => onNext(service.id)}
-              onMouseEnter={() => setHovered(service.id)}
-              onMouseLeave={() => setHovered(null)}
               className={[
                 'relative text-left border-4 rounded-neo p-5 transition-all duration-150 cursor-pointer',
                 'focus:outline-none focus:ring-4 focus:ring-neo-orange focus:ring-offset-2',
